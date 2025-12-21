@@ -20,7 +20,7 @@
 * nginx:1.21.1
 
 # 開発環境
-* お問い合わせフォーム:http://localhost 
+* 商品一覧:http://localhost/products  
 * phpmyadmin:http://localhost:8080
 
 # ER図添付  
