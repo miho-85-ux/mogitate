@@ -13,7 +13,9 @@
 </head>
 <body>
     <div class="head">
-        <h2 class="head-title">mogitate</h2>
+        <h2>
+            <a class="head-title" href="/products">mogitate</a>
+        </h2>
     </div>
     @yield('content')
     
