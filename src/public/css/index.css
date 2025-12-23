@@ -28,10 +28,11 @@
 .content-item__tag {
     margin: 0 auto;
     padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 .content-item__search {
-    margin: 15px;
+    margin: 15px 0;
 }
 
 input {
@@ -48,10 +49,6 @@ input {
     width: 100%;
     border-radius: 3px;
     margin: 20px 0;
-}
-
-.content-item__price {
-    border-bottom: 1px solid #ddd;
 }
 
 label {
@@ -123,4 +120,20 @@ select {
   background: #f5c800;
   color: #fff;
   border: none;
+}
+
+.content-item__logo {
+    border: 2px solid #f5c800;
+    border-radius: 50px;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-item__logp--emphasize {
+    border: 2px solid #f5c800;
+    border-radius: 50%;
+    color: #f5c800;
+    text-decoration: none;
 }
