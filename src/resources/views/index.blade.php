@@ -47,13 +47,15 @@
         </form>
         <div class="card-items">
             @foreach ($products as $product)
-            <div class="card-item">
-                <img src="{{ asset('images/'. $product->image) }} " alt="{{ $product->name }}" />
-                <div class="card-item__fine">
-                    <p>{{ $product->name }}</p>
-                    <p>￥{{ $product->price }}</p>
+            <a class="card-items__link" href="/products/detail/{{ $product->id }}">
+                <div class="card-item">
+                    <img src="{{ asset('images/'. $product->image) }} " alt="{{ $product->name }}" />
+                    <div class="card-item__fine">
+                        <p>{{ $product->name }}</p>
+                        <p>￥{{ $product->price }}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
             @endforeach
             <div class="pagination">
                 {{ $products->links('vendor.pagination.default') }}

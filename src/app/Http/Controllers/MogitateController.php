@@ -29,4 +29,18 @@ class MogitateController extends Controller
         return view('index', compact('products'));
     }
 
+    public function edit($product) {
+        $product = Product::with('seasons')->find($product);
+        $seasons = Season::all();
+
+        return view('detail', compact('product', 'seasons'));
+    }
+
+    public function update(Request $request) {
+        $product = Product::find($request->key);
+        $product->update($request->only(['name', 'price', 'image', 'description']));
+    //    季節の登録処理必要
+
+        return redirect('/products');
+    }
 }

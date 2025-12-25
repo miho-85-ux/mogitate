@@ -1,10 +1,11 @@
 .head{
     margin: 0 auto;
-    width: 1600px;
+    width: auto;
 }
 
 .head-title{
     color: #f6d12a;
     font-family: "Lobster Two", sans-serif;
     text-decoration: none;
+    padding: 10px;
 }
