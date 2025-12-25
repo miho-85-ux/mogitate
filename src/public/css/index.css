@@ -1,6 +1,6 @@
 .index-content {
     margin: 0 auto;
-    max-width: 1600px;
+    width: auto;
     background-color: #f8f8f8;
     padding: 30px;
 }
@@ -73,10 +73,12 @@ select {
     flex-wrap: wrap;
 }
 
-.card-item {
+.card-items__link {
+    text-decoration: none;
+    color: #111;
     width: 30%;
     box-shadow: 3px 3px 5px #ddd;
-    margin: 10px;
+    margin: 12px;
 }
 
 .card-item img {

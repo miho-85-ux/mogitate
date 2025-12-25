@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('products', [MogitateController::class, 'index']);
 
+Route::get('products/detail/{product}', [MogitateController::class, 'edit']);
+
+Route::patch('products/{product}/update', [MogitateController::class, 'update']);
