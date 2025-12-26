@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
+use App\Http\Requests\MogitateRequest;
 
 
 class MogitateController extends Controller
@@ -32,14 +33,50 @@ class MogitateController extends Controller
     public function edit($product) {
         $product = Product::with('seasons')->find($product);
         $seasons = Season::all();
-
+        
         return view('detail', compact('product', 'seasons'));
     }
+    
+    public function create() {
+        $seasons = Season::all();
+        
+        return view('store', compact('seasons'));
+    }
+    
+    public function store(MogitateRequest $request) {
+        $validated = $request->validated();
+        $path = $request->file('image')->store('products', 'public');
+        $product = Product::create([
+            'name' => $validated['name'], 
+            'price' => $validated['price'], 
+            'image' => $path, 
+            'description' => $validated['description'], 
+        ]);
+        
+        $product->seasons()->attach($validated['seasons']);
+        return redirect('/products');
+    }
+    
+    public function update(MogitateRequest $request) {
+        $validated = $request->validated();
+        
+        $product = Product::find($request->id);
 
-    public function update(Request $request) {
-        $product = Product::find($request->key);
-        $product->update($request->only(['name', 'price', 'image', 'description']));
-    //    季節の登録処理必要
+        $product -> name = $validated['name'];
+        $product -> price = $validated['price'];
+        $product -> description = $validated['description'];
+
+        if ($request->hasFile('image')){
+            $product->image = $request->file('image') -> store('products', 'public');
+        }
+
+        $product->save();
+        $product->seasons()->sync($validated['seasons'] ?? []);
+        return redirect('/products');
+    }
+
+    public function destroy (Product $product) {
+        $product -> delete();
 
         return redirect('/products');
     }

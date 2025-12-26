@@ -49,7 +49,7 @@
             @foreach ($products as $product)
             <a class="card-items__link" href="/products/detail/{{ $product->id }}">
                 <div class="card-item">
-                    <img src="{{ asset('images/'. $product->image) }} " alt="{{ $product->name }}" />
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
                     <div class="card-item__fine">
                         <p>{{ $product->name }}</p>
                         <p>￥{{ $product->price }}</p>

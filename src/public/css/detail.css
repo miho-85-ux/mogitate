@@ -123,3 +123,16 @@ textarea {
     padding: 10px 30px;
     font-size: 18px;
 }
+
+.submit__delete {
+    background-color: #fd2d2d;
+    border: none;
+}
+
+.item__submit-delete{
+    text-align: end;
+}
+
+.error {
+    color: #fd2d2d;
+}
