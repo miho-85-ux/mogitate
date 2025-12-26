@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MogitateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('products', [MogitateController::class, 'index']);
+
+Route::get('products/detail/{product}', [MogitateController::class, 'edit']);
+
+Route::get('products/register', [MogitateController::class, 'create']);
+
+Route::post('products/register', [MogitateController::class, 'store']);
+
+Route::patch('products/{product}/update', [MogitateController::class, 'update']);
+
+Route::delete('products/{product}/delete', [MogitateController::class, 'destroy']);
